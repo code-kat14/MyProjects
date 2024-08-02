@@ -2,19 +2,37 @@
 ***
 
 ## Task
-TODO - What is the problem? And where is the challenge?
+Recreate the classic Mastermind game, But with numbers instead of colors.
 
 ## Description
-TODO - How have you solved the problem?
+The main goal was getting a deeper understanding of game flow logic, breaking larger problems into smaller chunks on
+a small scale.
+How to win:
+Correclty guess all four numbers correctly in the correct order within 10 attempts.
+Example -> Computer generated secret code 1234
+Your guess 1243
+The program will calculate how many numbers in the correct place you guessed ie... "Well placed peices: 2 Misplaced pieces: 2"
+Once you guess all four digits correctly in the right spot YOU WIN!
+
 
 ## Installation
-TODO - How to install your project? npm install? make? make re?
+1. Make sure you have proper dependacies
+    -make
+    -gcc compiler
 
 ## Usage
-TODO - How does it work?
-```
-./my_project argument1 argument2
-```
+Once you have proper dependancies 
+run following commands
+1. make 
+    -should show that file has been compiled
+    ```
+    gcc -Wall -Wextra -Werror -c my_mastermind.c 
+    gcc -Wall -Wextra -Werror -o my_mastermind my_mastermind.o
+    ```
+2. >$ my_mastermind options player_guess
+    Options to the player 
+    To set custom secret code `-c` 
+    To set custom number of attempts `-t`
 
 ### The Core Team
 

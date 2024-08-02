@@ -1,6 +1,6 @@
 TARGET = my_mastermind
-OBJ = my_mastermind.o main.o
-SRC = my_mastermind.c main.c
+OBJ = my_mastermind.o 
+SRC = my_mastermind.c 
 DEPS = headers.h 
 CFLAGS = -Wall -Wextra -Werror
 
