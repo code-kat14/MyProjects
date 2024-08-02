@@ -16,23 +16,23 @@ Once you guess all four digits correctly in the right spot YOU WIN!
 
 
 ## Installation
-1. Make sure you have proper dependacies
-    -make
-    -gcc compiler
+1. Make sure you have proper dependacies<br>
+    -make<br>
+    -gcc compiler<br>
 
 ## Usage
-Once you have proper dependancies 
-run following commands
-1. make 
+Once you have proper dependancies<br> 
+run following commands<br>
+1. make <br>
     -should show that file has been compiled
     ```
     gcc -Wall -Wextra -Werror -c my_mastermind.c 
     gcc -Wall -Wextra -Werror -o my_mastermind my_mastermind.o
     ```
-2.  $ my_mastermind options player_guess
-    Options to the player 
-    To set custom secret code `-c` 
-    To set custom number of attempts `-t`
+2.  $ my_mastermind options player_guess<br>
+    Options to the player <br>
+    To set custom secret code `-c` <br>
+    To set custom number of attempts `-t`<br>
 
 ### The Core Team
 
