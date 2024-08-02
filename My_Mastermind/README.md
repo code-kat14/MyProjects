@@ -7,12 +7,12 @@ Recreate the classic Mastermind game, But with numbers instead of colors.
 ## Description
 The main goal was getting a deeper understanding of game flow logic, breaking larger problems into smaller chunks on
 a small scale.
-How to win:
-Correclty guess all four numbers correctly in the correct order within 10 attempts.
-Example -> Computer generated secret code 1234
-Your guess 1243
-The program will calculate how many numbers in the correct place you guessed ie... "Well placed peices: 2 Misplaced pieces: 2"
-Once you guess all four digits correctly in the right spot YOU WIN!
+How to win:<br>
+Correclty guess all four numbers correctly in the correct order within 10 attempts.<br>
+Example -> Computer generated secret code 1234<br>
+Your guess 1243<br>
+The program will calculate how many numbers in the correct place you guessed ie... "Well placed peices: 2 Misplaced pieces: 2"<br>
+Once you guess all four digits correctly in the right spot YOU WIN!<br>
 
 
 ## Installation
