@@ -6,7 +6,7 @@ Recreate the classic Mastermind game, But with numbers instead of colors.
 
 ## Description
 The main goal was getting a deeper understanding of game flow logic, breaking larger problems into smaller chunks on
-a small scale.
+a small scale.<br>
 How to win:<br>
 Correclty guess all four numbers correctly in the correct order within 10 attempts.<br>
 Example -> Computer generated secret code 1234<br>
