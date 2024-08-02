@@ -29,7 +29,7 @@ run following commands
     gcc -Wall -Wextra -Werror -c my_mastermind.c 
     gcc -Wall -Wextra -Werror -o my_mastermind my_mastermind.o
     ```
-2. >$ my_mastermind options player_guess
+2.  $ my_mastermind options player_guess
     Options to the player 
     To set custom secret code `-c` 
     To set custom number of attempts `-t`
