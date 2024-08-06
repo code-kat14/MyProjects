@@ -18,7 +18,11 @@ How to win:<br>
 Correclty guess all four numbers correctly in the correct order within 10 attempts.<br>
 Example -> Computer generated secret code 1234<br>
 Your guess 1243<br>
-The program will calculate how many numbers in the correct place you guessed example output '''"Well placed peices: 2 Misplaced pieces: 2"'''<br>
+The program will calculate how many numbers in the correct place you guessed example output 
+```
+"Well placed peices: 2 Misplaced pieces: 2"
+``` 
+<br>
 Once you guess all four digits correctly in the right spot YOU WIN!<br>
 
 
