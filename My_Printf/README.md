@@ -21,7 +21,6 @@ Compile using
 ```
 gcc my_printf.c -o my_printf
 ```
-<br>
 ```
 -> $ ./my_printf
 ```
