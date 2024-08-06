@@ -251,9 +251,6 @@ int main()
     
     /*string & char test*/
     my_printf("test 00 - katie NULL STRING %s!\n\n", (char *)NULL);
-  
-    int my_test = my_printf("%d, %s\n", 1234,"hello!");
-    printf("amount of charactes printed: %d\n\n", my_test);
 
     int my_test_01 = my_printf("%c%c%c%c%c\n", 'H', 'e', 'l', 'l', 'o'); 
     printf("amount of characters printed: %d\n\n", my_test_01);
