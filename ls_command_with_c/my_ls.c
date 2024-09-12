@@ -3,18 +3,9 @@
 #include <dirent.h>
 #include "headers.h"
 #include <string.h>
-// make output output in lexicographical order(a-z)
-//-a include dir names that start with a (.)dot
-//-t Sort by time modified (most recently modified first)
-//^^ -t will be sorted by date modified first then lexicographical order
-// makefile command will be my_ls -a or my_ls -t or my_ls or my_ls -a -t
-/*
-1.files get printed out including hidden in createlist function
-2.ls and ls -a work as intended but are called in the main, 
-3. can i call my -a option inside createlist function? 
-4. can i call my createlist function inside main as well, printing is done according to parameters of project?
-5. how does displaying files by time edited mesh into the flow of program?
-*/
+#include <stdbool.h>
+#include <sys/stat.h>
+#include <time.h>
 
 void my_strncpy(char *destination, char *source, int length)
 {
@@ -48,56 +39,67 @@ int my_strlen(char *string)
     return length;
 }
 
-void a_option(DIR *dir)
+void sort_function(int file_count, struct dirent **entry)//sort my dir , modify my dir values, 
 {
-    struct dirent *entry;
-    printf("-a option has been entered\n");
-    while((entry = readdir(dir)))
+    int i, j;
+   
+    struct dirent *temp;
+    for(i = 0; i < file_count; i++) //i = string1
     {
-        printf("%s ", entry->d_name);
+        for(j = i + 1; j < file_count; j++) //j = string2
+        {
+           
+            if(strcmp(entry[i]->d_name, entry[j]->d_name) > 0)
+            {
+                printf("inside if statement\n");
+                temp = entry[i];
+                entry[i] = entry[j];
+                entry[j] = temp;
+                printf("end of if statement\n");
+            }
+        }
     }
+    printf("number of files %i\n",file_count);
+    for(int index = 0; index < file_count; index++)
+    {
+        printf("%s\n", entry[index]->d_name);
+    }
+    //free(temp);
 }
 
-void create_list(DIR *dir, int count_files)
+void print_files(DIR *dir, bool a_flag, bool t_flag)
 {
-    printf("entered create_list function\n");
-    struct dirent *entry;  // pointer to all of the struct, pointer to all information in directory, RETURNS address of file struct
-    char **filenames = malloc(count_files * sizeof(char *));
-
-    int index = 0;
-    while ((entry = readdir(dir)) && index < count_files)
+    struct dirent *entry;
+    struct stat file_stat;
+    int count = 0;
+    while ((entry = readdir(dir)) != NULL)
     {
-        // printf("while loop index %i\n", index);
-        filenames[index] = malloc(my_strlen(entry->d_name) + 1);
-        my_strncpy(filenames[index], entry->d_name,my_strlen(entry->d_name) + 1);
-        index++;
+        count+=1;
+        stat(entry->d_name, &file_stat);
+        time_t modified = file_stat.st_mtim.tv_sec;
+        if(a_flag)
+        {
+            printf("%s\n", entry->d_name);
+        }
+        else if(t_flag) 
+        {
+            printf("%s %s\n",entry->d_name, ctime(&modified));
+        }
+        else if(entry->d_name[0] != '.')
+        {
+            printf("%s\n", entry->d_name);
+        }
     }
-    
-    // for(int i = 0; i < index; i++)
-    // {
-    //     printf("%s ", filenames[i]);
-    // }
-    // printf("\n");
-    // printf("before free loop\n");
-    for (int index = 0; index < count_files; index++)
-    {
-        // printf("entered free loop\n");
-        free(filenames[index]);
-    }
-    // printf("after free loop\n");
-    free(filenames);
-    printf("end createlist function\n");
+    printf("count %i\n", count);
+    sort_function(count, &entry);
 }
 
 int main(int argc, char **argv)
 {
-    // opens current working dir
     DIR *dir = opendir(".");
-    // structure holding data from directory stream
-    struct dirent *entry_point;
-    int file_count = 0;
-
-    // if my directory is empty print error and return with error
+    bool a_flag = false;
+    bool t_flag = false;
+  
     if (dir == NULL)
     {
         printf("cannot open directory\n");
@@ -108,29 +110,15 @@ int main(int argc, char **argv)
     {
         if (strcmp(argv[1], "-t") == 0)
         {
-            printf("-t option has been entered\n");
+           t_flag = true;
         }
         if (strcmp(argv[1], "-a") == 0)
         {
-            a_option(dir);
+            a_flag = true;
         }
     }
-
-    // while my entry point to the current direcorty is not null print each file in directory
-    while ((entry_point = readdir(dir)) != NULL)
-    {
-        if(entry_point->d_name[0] != '.')
-        {
-            printf("%s ", entry_point->d_name);
-        }
-        file_count += 1;
-    }
-    puts("\n");
-    printf("file count in main: %i\n", file_count);
-    closedir(dir);
-
-    dir = opendir(".");
-    create_list(dir, file_count);
+    print_files(dir,a_flag, t_flag);
+    //printf("file count in main: %i\n", file_count);
     closedir(dir);
 
     return 0;
