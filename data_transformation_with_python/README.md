@@ -7,16 +7,16 @@ Data manipulation with cvs strings using python and introduction to python libra
 ## Description
 Simplify data for analysis<br>
 1. Extract email domain name from email column
-    *example@gmail.com -> gmail.com
+    -example@gmail.com -> gmail.com
 2. Extract age from age column and group together costumers based on age range
-    *1-20
-    *21-40
-    *41-65
-    *66-99
+    -1-20
+    -21-40
+    -41-65
+    -66-99
 3. Extract time of date, and catagorize based on time periods
-    *morning 06:00 -> 11:59
-    *afternoon 12:00 -> 17:59
-    *evening 18:00 -> 23:59
+    -morning 06:00 -> 11:59
+    -afternoon 12:00 -> 17:59
+    -evening 18:00 -> 23:59
 
 ## Installation
 *no installations needed*
