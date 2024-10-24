@@ -19,14 +19,15 @@ OR
 `$> ./my_ls -flag directory`
 
 ## Usage
-Various options are listed below: 
+Various options are listed below:
+``` 
 1. ./ls 
 2. ./ls -t
 3. ./ls -a 
 4. ./ls -ta 
 5. ./ls -at
-```./ls -flag flag directory```
-
+6. ./ls -flag flag directory
+```
 ### The Core Team
 
 
