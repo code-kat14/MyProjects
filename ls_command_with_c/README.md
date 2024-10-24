@@ -1,4 +1,4 @@
-# Welcome to My Ls (this project is currently under construction)
+# Welcome to My Ls
 ***
 
 ## Task
